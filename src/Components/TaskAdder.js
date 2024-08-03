@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TaskAdder.css";
 import TaskManager from "./TaskManager";
 
-const Tasks = () => {
+const TaskAdder = () => {
+  const [task, setTask] = useState([]);
+  const [Title, setTitle] = useState("");
+  const [Description, setDescription] = useState("");
+
   return (
     <div className="container">
-
       <form action="">
         <input type="text" placeholder="Enter the title" />
 
         <textarea placeholder="Description"></textarea>
 
-        <button type="Submit">
-          Submit
-        </button>
-
+        <button type="Submit">Submit</button>
       </form>
-      <hr/>
+      <hr />
       <div className="DivManager">
-      <TaskManager/>
+        {task.map(() => {
+          <TaskManager title="Title" description="Description" />;
+        })}
       </div>
     </div>
   );
 };
 
-export default Tasks;
+export default TaskAdder;

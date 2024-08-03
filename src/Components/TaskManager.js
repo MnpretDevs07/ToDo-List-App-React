@@ -1,12 +1,12 @@
 import React from "react";
 import "./TaskManager.css";
 
-const TaskManager = () => {
+const TaskManager = (props) => {
   return (
     <div className="Manager">
       <div>
-        <p>Title</p>
-        <span>Description</span>
+        <p>Title :- {props.title}</p>
+        <span>Description :- {props.description}</span>
       </div>
       <button>Remove</button>
     </div>
