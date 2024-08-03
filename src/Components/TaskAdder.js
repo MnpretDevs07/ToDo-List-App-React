@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import "./TaskAdder.css";
 import TaskManager from "./TaskManager";
 
-
-const initialArr = localStorage.getItems("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
-
 const TaskAdder = () => {
-  const [tasks, setTasks] = useState(initialArr);
+
+
+  const InitialArr = localStorage.getItems("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
+
+  const [tasks, setTasks] = useState(InitialArr);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const submitHandler = (e) => {
 
     e.preventDefault();
+
+    localStorage.setItem("tasks",JSON.stringify(tasks))
 
     setTasks([...tasks, { title, description }])
   }
