@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TaskAdder.css";
 import TaskManager from "./TaskManager";
 
 const TaskAdder = () => {
 
 
-  const InitialArr = localStorage.getItems("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
+  const InitialArr = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
 
   const [tasks, setTasks] = useState(InitialArr);
   const [title, setTitle] = useState("");
@@ -14,10 +14,9 @@ const TaskAdder = () => {
   const submitHandler = (e) => {
 
     e.preventDefault();
-
-    localStorage.setItem("tasks",JSON.stringify(tasks))
-
     setTasks([...tasks, { title, description }])
+    setTitle("");
+    setDescription("");
   }
 
   const DeleteHdl = (index) => {
@@ -27,6 +26,11 @@ const TaskAdder = () => {
     setTasks(filteredArr);
   };
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
+
+
 
   return (
     <div className="container">
@@ -34,13 +38,13 @@ const TaskAdder = () => {
         <input
           type="text"
           placeholder="Enter the title"
-          defaultValue={title}
+          Value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <textarea
           placeholder="Description"
-          defaultValue={description}
+          Value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
 
