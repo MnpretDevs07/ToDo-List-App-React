@@ -1,8 +1,14 @@
 Nav {
      background-color:  #708871;
-     padding: 30px;
+     padding: 20px;
      text-align: center;
      color: white;
      margin-bottom: 30px;
      font-size: larger;
+     border: 5px solid rgba(0, 0, 0, 0.31) ;
+}
+
+h3{
+     color: rgba(255, 255, 255, 0.534);
+     margin: 10px 0px 0px 0px;
 }
