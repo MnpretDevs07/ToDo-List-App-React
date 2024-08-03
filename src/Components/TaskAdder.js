@@ -3,24 +3,41 @@ import "./TaskAdder.css";
 import TaskManager from "./TaskManager";
 
 const TaskAdder = () => {
-  const [task, setTask] = useState([]);
-  const [Title, setTitle] = useState("");
-  const [Description, setDescription] = useState("");
+  const [tasks, setTasks] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  console.log(title, description);
+
+  const submitHandler = (e) => {
+
+    e.preventDefault();
+  
+  }
 
   return (
     <div className="container">
-      <form action="">
-        <input type="text" placeholder="Enter the title" />
+      <form onSubmit={submitHandler}>
+        <input
+          type="text"
+          placeholder="Enter the title"
+          value={title}
+          onChange={(e) => setTitle = (e.target.value)}
+        />
 
-        <textarea placeholder="Description"></textarea>
+        <textarea
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription = (e.target.value)}
+        ></textarea>
 
         <button type="Submit">Submit</button>
       </form>
       <hr />
       <div className="DivManager">
-        {task.map(() => {
-          <TaskManager title="Title" description="Description" />;
-        })}
+        {tasks.map((val, index) => (
+          <TaskManager key={index} />
+        ))}
       </div>
     </div>
   );

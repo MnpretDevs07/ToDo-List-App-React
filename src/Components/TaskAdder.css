@@ -1,44 +1,48 @@
 .container {
-     background-color: #BEC6A0 ;
+     background-color: #BEC6A0;
      width: 70%;
      margin: auto;
      min-height: 100vh;
      border-radius: 30px;
      border: 5px solid gray;
      padding: 4vmax;
-   }
-   hr{
+}
+
+hr {
      background-color: black;
      height: 3px;
      margin: 30px 0px;
-   }
-   
-   .container > form{
+}
+
+.container>form {
      display: flex;
      flex-direction: column;
-     padding :15px 20px 20px 20px;
-   }
-   
-   .container > form > input,textarea,button{
-     padding:1.2vmax;
+     padding: 15px 20px 20px 20px;
+}
+
+.container>form>input,
+textarea,
+button {
+     padding: 1.2vmax;
      border: 2px solid black;
      border-radius: 20px;
      margin: 7px 0px;
      font-size: large;
-   }
-   
-   
-   .container > form > textarea{
+}
+
+
+.container>form>textarea {
      margin-bottom: 20px;
      min-height: 20vh;
-   }
-   
-   .container > form > button{
+}
+
+.container>form>button {
      background-color: #606676;
      color: white;
      font-size: x-large;
-   }
+     cursor: pointer;
+}
 
-   .DivManager{
+.DivManager {
      padding: 20px;
-   }
+}
