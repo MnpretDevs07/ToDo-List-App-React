@@ -2,18 +2,28 @@ import React, { useState } from "react";
 import "./TaskAdder.css";
 import TaskManager from "./TaskManager";
 
+
+const initialArr = localStorage.getItems("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
+
 const TaskAdder = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(initialArr);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
-  console.log(title, description);
 
   const submitHandler = (e) => {
 
     e.preventDefault();
-  
+
+    setTasks([...tasks, { title, description }])
   }
+
+  const DeleteHdl = (index) => {
+    const filteredArr = tasks.filter((val, i) => {
+      return i !== index;
+    })
+    setTasks(filteredArr);
+  };
+
 
   return (
     <div className="container">
@@ -21,22 +31,28 @@ const TaskAdder = () => {
         <input
           type="text"
           placeholder="Enter the title"
-          value={title}
-          onChange={(e) => setTitle = (e.target.value)}
+          defaultValue={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <textarea
           placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription = (e.target.value)}
+          defaultValue={description}
+          onChange={(e) => setDescription(e.target.value)}
         ></textarea>
 
-        <button type="Submit">Submit</button>
+        <button type="Submit">Add</button>
       </form>
       <hr />
       <div className="DivManager">
         {tasks.map((val, index) => (
-          <TaskManager key={index} />
+          <TaskManager
+            key={index}
+            Title={val.title}
+            Description={val.description}
+            DeleteHdl={DeleteHdl}
+            index={index}
+          />
         ))}
       </div>
     </div>
