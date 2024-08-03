@@ -11,7 +11,6 @@ const TaskAdder = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
 
-  console.log(inputTitle, inputDescription);
   const submitHandler = (e) => {
 
     e.preventDefault();
