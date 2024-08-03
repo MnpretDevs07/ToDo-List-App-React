@@ -8,15 +8,13 @@ const TaskAdder = () => {
   const InitialArr = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
 
   const [tasks, setTasks] = useState(InitialArr);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputDescription, setInputDescription] = useState("");
 
   const submitHandler = (e) => {
 
     e.preventDefault();
-    setTasks([...tasks, { title, description }])
-    setTitle("");
-    setDescription("");
+    setTasks([...tasks, { inputTitle, inputDescription }])
   }
 
   const DeleteHdl = (index) => {
@@ -25,6 +23,11 @@ const TaskAdder = () => {
     })
     setTasks(filteredArr);
   };
+
+  const clearInput =()=>{
+    setInputTitle("");
+    setInputDescription("");
+  }
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -38,25 +41,25 @@ const TaskAdder = () => {
         <input
           type="text"
           placeholder="Enter the title"
-          Value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          Value={inputTitle}
+          onChange={(e) => setInputTitle(e.target.value)}
         />
 
         <textarea
           placeholder="Description"
-          Value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          Value={inputDescription}
+          onChange={(e) => setInputDescription(e.target.value)}
         ></textarea>
 
-        <button type="Submit">Add</button>
+        <button type="Submit" onClick={clearInput}>Add</button>
       </form>
       <hr />
       <div className="DivManager">
         {tasks.map((val, index) => (
           <TaskManager
             key={index}
-            Title={val.title}
-            Description={val.description}
+            Title={val.inputTitle}
+            Description={val.inputDescription}
             DeleteHdl={DeleteHdl}
             index={index}
           />
