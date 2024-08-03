@@ -11,10 +11,15 @@ const TaskAdder = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
 
+  console.log(inputTitle, inputDescription);
   const submitHandler = (e) => {
 
     e.preventDefault();
+
     setTasks([...tasks, { inputTitle, inputDescription }])
+
+    setInputTitle("");
+    setInputDescription("");
   }
 
   const DeleteHdl = (index) => {
@@ -23,11 +28,6 @@ const TaskAdder = () => {
     })
     setTasks(filteredArr);
   };
-
-  const clearInput =()=>{
-    setInputTitle("");
-    setInputDescription("");
-  }
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -41,17 +41,17 @@ const TaskAdder = () => {
         <input
           type="text"
           placeholder="Enter the title"
-          Value={inputTitle}
+          value={inputTitle}
           onChange={(e) => setInputTitle(e.target.value)}
         />
 
         <textarea
           placeholder="Description"
-          Value={inputDescription}
+          value={inputDescription}
           onChange={(e) => setInputDescription(e.target.value)}
         ></textarea>
 
-        <button type="Submit" onClick={clearInput}>Add</button>
+        <button type="Submit">Add</button>
       </form>
       <hr />
       <div className="DivManager">
