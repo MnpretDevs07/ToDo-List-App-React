@@ -2,6 +2,8 @@
   "homepage": "https://mnpretdevs07.github.io/ToDo-List-App-React/",
   "name": "project",
   "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "MnpretDevs07",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
