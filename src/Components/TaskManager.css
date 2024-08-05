@@ -1,15 +1,15 @@
 .Manager {
      display: flex;
      background-color: white;
-     padding:20px;
+     padding: 20px;
      border-radius: 20px;
      align-items: center;
      font-size: larger;
      margin-bottom: 20px;
 }
 
-.Manager span{
-     font-size:medium;
+.Manager span {
+     font-size: medium;
      color: rgba(0, 0, 0, 0.573);
 }
 
@@ -17,19 +17,59 @@
      width: 100%;
 }
 
-.Manager button {
-     border-radius: 100%;
-     height: 60px;
-     width: 60px;
-     font-size: small;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+@media only screen and (max-width: 989px) {
+
+     .Manager {
+          flex-direction: column;
+     }
+
 }
 
-.Manager button:hover {
-     background-color: rgb(96, 0, 0);
-     color: white;
-     transition: 0.5s ease;
+@media only screen and (max-width: 989px) {
+
+     .Manager button {
+          width: 50vmin;
+          border-radius: 10px;
+          padding: 10px 40px;
+          font-size: small;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 30px;
+     }
+
+     .Manager button:hover {
+          background-color: rgb(96, 0, 0);
+          color: white;
+          transition: 0.5s ease;
+     }
+
 }
 
+@media only screen and (min-width: 990px) {
+     .Manager button {
+          border-radius: 100%;
+          height: 60px;
+          width: 60px;
+          font-size: small;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
+
+     .Manager button:hover {
+          background-color: rgb(96, 0, 0);
+          color: white;
+          transition: 0.5s ease;
+     }
+}
+
+@media only screen and (max-width: 320px) {
+     .Manager> div {
+          overflow-wrap: break-word;
+     }
+
+     .Manager> button{
+          overflow-wrap: break-word;
+     }
+}

@@ -28,6 +28,12 @@ button {
      border-radius: 20px;
      margin: 7px 0px;
      font-size: large;
+    
+}
+
+.container>form>input,
+textarea {
+     padding-left: 15px;   
 }
 
 
